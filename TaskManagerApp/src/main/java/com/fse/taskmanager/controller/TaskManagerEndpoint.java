@@ -1,0 +1,27 @@
+package com.fse.taskmanager.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.fse.taskmanager.model.Task;
+
+public interface TaskManagerEndpoint {
+
+	@GetMapping(value = "/tasks")
+	public ResponseEntity<Task> getAllTasks();
+
+	@PostMapping(value = "/add")
+	public ResponseEntity<Task> addTask(@RequestBody Task task);
+
+	@PutMapping(value = "/edit")
+	public ResponseEntity<Task> updateTask(@RequestBody Task task);
+
+	@DeleteMapping(value = "/tasks/{id}")
+	public ResponseEntity<String> delete(@PathVariable("id") String id);
+
+}
