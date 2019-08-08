@@ -13,7 +13,7 @@ import com.fse.taskmanager.model.Task;
 public interface TaskManagerEndpoint {
 
 	@GetMapping(value = "/tasks")
-	public ResponseEntity<Task> getAllTasks();
+	public ResponseEntity<Task> searchTasks();
 
 	@PostMapping(value = "/add")
 	public ResponseEntity<Task> addTask(@RequestBody Task task);

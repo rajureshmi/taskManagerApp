@@ -19,6 +19,9 @@ import com.fse.taskmanager.service.TaskManagerService;
 
 public class TaskManagerServiceImpl implements TaskManagerService {
 
+	private static final String SUCCESS = "SUCCESS";
+	private static final String FAILURE = "FAILURE";
+
 	private static final Logger logger = LoggerFactory.getLogger(TaskManagerServiceImpl.class);
 
 	@Autowired
@@ -43,6 +46,35 @@ public class TaskManagerServiceImpl implements TaskManagerService {
 			return newTask;
 		}
 		return null;
+	}
+
+	@Transactional
+	@Override
+	public Task updateTask(Task taskToBeUpdated) {
+		TaskDao taskDao = taskRepository.findByTaskId(taskToBeUpdated.getTaskId());
+		if (Objects.nonNull(taskDao)) {
+			taskDao.setPriority(taskToBeUpdated.getPriority());
+			taskDao.setStartDate(taskToBeUpdated.getStartDate());
+			taskDao.setEndDate(taskToBeUpdated.getEndDate());
+			taskDao.setTaskName(taskToBeUpdated.getTaskName());
+			if (StringUtils.isNotBlank(taskToBeUpdated.getParentTaskName())) {
+				ParentTaskDao parentTask = parentTaskRepository
+						.findByParentTaskName(taskToBeUpdated.getParentTaskName());
+				taskDao.setParentId(parentTask.getId());
+			}
+			taskRepository.saveAndFlush(taskDao);
+		}
+		return taskToBeUpdated;
+	}
+
+	@Override
+	public String deleteTask(Long taskId) {
+		String response = FAILURE;
+		if (taskRepository.existsById(taskId)) {
+			taskRepository.deleteByTaskId(taskId);
+			response = SUCCESS;
+		}
+		return response;
 	}
 
 }
