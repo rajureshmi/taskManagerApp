@@ -1,5 +1,7 @@
 package com.fse.taskmanager.controller;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +15,7 @@ import com.fse.taskmanager.model.Task;
 public interface TaskManagerEndpoint {
 
 	@GetMapping(value = "/tasks")
-	public ResponseEntity<Task> searchTasks();
+	public ResponseEntity<List<Task>> searchTasks(SearchType searchType, String fromValue, String toValue);
 
 	@PostMapping(value = "/add")
 	public ResponseEntity<Task> addTask(@RequestBody Task task);

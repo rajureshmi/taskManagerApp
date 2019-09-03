@@ -1,4 +1,4 @@
-package com.fse.taskmanager.dao;
+package com.fse.taskmanager.dao.entity;
 
 public enum TaskStatus {
 

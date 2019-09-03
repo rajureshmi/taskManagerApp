@@ -2,7 +2,7 @@ package com.fse.taskmanager.model;
 
 import java.time.LocalDate;
 
-import com.fse.taskmanager.dao.TaskDao;
+import com.fse.taskmanager.dao.entity.TaskDao;
 
 public class Task {
 
@@ -71,6 +71,18 @@ public class Task {
 	public void setPriority(int priority) {
 		this.priority = priority;
 	}
+
+
+	public Task(TaskDao taskDao) {
+		super();
+		this.taskId = taskDao.getId();
+		this.taskName = taskDao.getTaskName();
+		this.startDate = taskDao.getStartDate();
+		this.endDate = taskDao.getEndDate();
+		this.priority = taskDao.getPriority();
+	}
+	
+	
 
 
 }

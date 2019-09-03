@@ -1,5 +1,7 @@
 package com.fse.taskmanager.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import org.apache.commons.lang3.StringUtils;
@@ -17,12 +19,6 @@ public class TaskManagerController implements TaskManagerEndpoint {
 
 	@Autowired
 	TaskManagerService taskManagerService;
-
-	@Override
-	public ResponseEntity<Task> searchTasks() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public ResponseEntity<Task> addTask(Task task) {
@@ -55,7 +51,7 @@ public class TaskManagerController implements TaskManagerEndpoint {
 
 	@Override
 	public ResponseEntity<String> delete(String id) {
-		if(StringUtils.isNotBlank(id)) {
+		if (StringUtils.isNotBlank(id)) {
 			String response = taskManagerService.deleteTask(Long.valueOf(id));
 			if (StringUtils.isNotBlank(response)) {
 				return new ResponseEntity<>(response, HttpStatus.OK);
@@ -63,7 +59,23 @@ public class TaskManagerController implements TaskManagerEndpoint {
 				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 
-		}else {
+		} else {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
+
+	@Override
+	public ResponseEntity<List<Task>> searchTasks(SearchType searchType, String fromValue, String toValue) {
+		List<Task> taskList = new ArrayList<>();
+		if (StringUtils.isNotBlank(fromValue)) {
+			taskList = taskManagerService.searchTasks(searchType, fromValue, toValue);
+			if (Objects.nonNull(taskList)) {
+				return new ResponseEntity<>(taskList, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+
+		} else {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
