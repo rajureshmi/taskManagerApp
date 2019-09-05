@@ -1,0 +1,56 @@
+.double {
+  border-style: double;
+  border-color: black;
+}
+
+
+label {
+  color: black;
+  float: left;
+  margin: 25px;
+  width : 100px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+input, select{
+  color:black;
+  box-sizing: border-box;
+  border: 2px solid black ;
+  border-radius: 4px;
+  width: 500px !important;
+
+}
+
+small
+{
+  padding-left: 25px;
+}
+#addTaskForm{
+  margin: auto;
+  display: table;
+  text-align: left;
+  padding: 50px 50px;
+  height: 90px
+}
+* {
+  font-family: "Century Gothic";
+  font-style: italic;
+}
+#submit{
+  margin-left: 150px;
+  border-radius: 10px;
+  background-color:grey;
+  border-color: black;
+  position: center;
+  top: 90%;
+}
+#reset{
+  margin-left: 20px;
+  border-radius: 10px;
+  background-color:grey;
+  border-color: black;
+  position: center;
+  top: 90%;
+  text-anchor: none;
+}

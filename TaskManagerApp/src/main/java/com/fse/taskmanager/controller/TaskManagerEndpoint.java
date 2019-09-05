@@ -17,10 +17,10 @@ public interface TaskManagerEndpoint {
 	@GetMapping(value = "/tasks")
 	public ResponseEntity<List<Task>> searchTasks(SearchType searchType, String fromValue, String toValue);
 
-	@PostMapping(value = "/add")
+	@PostMapping(value = "/addTask")
 	public ResponseEntity<Task> addTask(@RequestBody Task task);
 
-	@PutMapping(value = "/edit")
+	@PutMapping(value = "/editTask")
 	public ResponseEntity<Task> updateTask(@RequestBody Task task);
 
 	@DeleteMapping(value = "/tasks/{id}")

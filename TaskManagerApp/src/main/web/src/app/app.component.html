@@ -1,0 +1,27 @@
+<div>
+	<h2>Task Manager</h2>
+</div>
+
+<nav id="nav">
+	<table class="table table-hover" style="border: solid black">
+		<thead>
+			<tr>
+				<th>
+					<div id="addTask" class="nav-item">
+						<a class="nav-link" routerLinkActive="active"
+							routerLink="/addtask">Add Task</a>
+					</div>
+				</th>
+				<th>
+					<div id="viewTask" class="nav-item">
+						<a class="nav-link" routerLinkActive="active"
+							routerLink="/viewtask">View Task</a>
+					</div>
+				</th>
+			</tr>
+		</thead>
+	</table>
+</nav>
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>

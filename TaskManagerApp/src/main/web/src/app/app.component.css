@@ -1,0 +1,24 @@
+h2 {
+	color: black;
+	text-align: center;
+	border-style: double;
+}
+
+#addTask, #viewTask {
+	border-style: double;
+	border-color: black;
+	text-align: center;
+}
+
+a {
+	color: black;
+}
+
+* {
+	font-family: "Century Gothic";
+	font-style: italic;
+}
+
+.active {
+	background-color: grey;
+}

@@ -1,0 +1,91 @@
+.double {
+  border: double  black;
+}
+#viewtask tr:hover {background-color: #ddd;}
+
+#viewtask th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: grey;
+  color: white;
+}
+input {
+  color:black;
+}
+label {
+  color: black;
+}
+.search {
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+button
+{
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+* {
+  font-family: "Century Gothic";
+  font-style: italic;
+}
+
+h4 {
+  color:black;
+  text-align: center;
+  border: double black;
+  width: 100%;
+  background: grey;
+}
+
+small
+{
+  padding-left: 25px;
+}
+#updateTaskForm{
+  margin: auto;
+  display: table;
+  text-align: left;
+  padding: 50px 50px;
+  height: 90px
+}
+
+#updateTaskButton{
+  margin-left: 25px;
+  border-radius: 10px;
+  background-color:grey;
+  border-color: black;
+  position: center;
+  top: 90%;
+}
+#cancelButton{
+  margin-left: 25px;
+  border-radius: 10px;
+  background-color:grey;
+  border-color: black;
+  position: center;
+  top: 90%;
+  text-anchor: none;
+}
+
+.modelLabel{
+  color: black;
+  float: left;
+  margin: 10px;
+  width : 75px;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.modelSelectInput
+{
+  color:black;
+  box-sizing: border-box;
+  border: 2px solid black ;
+  border-radius: 4px;
+  width: 150px !important;
+}

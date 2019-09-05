@@ -96,15 +96,17 @@ public class TaskManagerServiceImpl implements TaskManagerService {
 					Integer.valueOf(toValue));
 			tasksList = mapTaskDaoToTask(priorityTaskDaoList);
 			break;
-		case START_DATE:
-		case END_DATE:
+		case DATES:
 			List<TaskDao> durationTaskDaoList = taskRepository.findByPriorityBetween(Integer.valueOf(fromValue),
 					Integer.valueOf(toValue));
 			tasksList = mapTaskDaoToTask(durationTaskDaoList);
 			break;
-
+		case PARENT_TASK_NAME:
+			ParentTaskDao parentTask = parentTaskRepository.findByName(fromValue);
+			List<TaskDao> parentTaskList = taskRepository.findByParentTaskId(parentTask.getId());
+			tasksList = mapTaskDaoToTask(parentTaskList);
+			break;
 		default: {
-
 		}
 		}
 		return tasksList;
