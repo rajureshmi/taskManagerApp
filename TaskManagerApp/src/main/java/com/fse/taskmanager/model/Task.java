@@ -81,6 +81,21 @@ public class Task {
 		this.endDate = taskDao.getEndDate();
 		this.priority = taskDao.getPriority();
 	}
+
+
+	public Task(String parentTaskName, String taskName, LocalDate startDate, LocalDate endDate, int priority) {
+		super();
+		this.parentTaskName = parentTaskName;
+		this.taskName = taskName;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.priority = priority;
+	}
+
+
+	public Task() {
+		super();
+	}
 	
 	
 
